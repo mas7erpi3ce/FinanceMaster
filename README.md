@@ -19,7 +19,12 @@ Here you should say what actually happens when you execute the code above.
 ## Developing
 
 ### Built With
-List main libraries, frameworks used including versions (React, Angular etc...)
+* Backend:
+  * Node.js
+* Frontend:
+  * Angular
+* AI:
+  * Python with TensorFlow
 
 ### Prerequisites
 What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
@@ -31,8 +36,8 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/your-project.git
-cd your-project/
+git clone https://github.com/mas7erpi3ce/FinanceMaster
+cd FinanceMaster/
 packagemanager install
 ```
 
@@ -84,7 +89,7 @@ Give an example
 
 ## Style guide
 
-We use following [Guidelines](https://github.com/elsewhencode/project-guidelines)
+We use following [Guidelines](https://github.com/elsewhencode/project-guidelines#user-content-1-git)
 
 ## Api Reference
 
@@ -92,6 +97,8 @@ If the api is external, link to api documentation. If not describe your api incl
 
 
 ## Database
+
+MonogoDB
 
 Explaining what database (and version) has been used. Provide download links.
 Documents your database design and schemas, relations etc... 
