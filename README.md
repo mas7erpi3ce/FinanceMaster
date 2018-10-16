@@ -29,6 +29,11 @@ Here you should say what actually happens when you execute the code above.
 ### Prerequisites
 What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
 
+Install NodeJS
+
+```shell
+npm install -g typescript ts-node
+```
 
 ### Setting up Dev
 
