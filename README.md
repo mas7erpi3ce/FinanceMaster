@@ -29,7 +29,7 @@ Here you should say what actually happens when you execute the code above.
 ### Prerequisites
 What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
 
-Install NodeJS
+Install [NodeJS](https://nodejs.org/en/)
 
 ```shell
 npm install -g typescript ts-node
@@ -103,7 +103,7 @@ If the api is external, link to api documentation. If not describe your api incl
 
 ## Database
 
-MonogoDB
+MongoDB
 
 Explaining what database (and version) has been used. Provide download links.
 Documents your database design and schemas, relations etc... 
