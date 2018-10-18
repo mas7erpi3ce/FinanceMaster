@@ -37,6 +37,14 @@ Install [Postman](https://www.getpostman.com/apps)
 npm install -g typescript ts-node
 ```
 
+
+Install [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html)
+
+```shell
+OpenSSL> req -newkey rsa:2048 -nodes -keyout keytemp.pem -x509 -days 365 -out cert.pem
+OpenSSL> rsa -in keytemp.pem -out key.pem
+``` 
+
 ### Setting up Dev
 
 Here's a brief intro about what a developer must do in order to start developing
