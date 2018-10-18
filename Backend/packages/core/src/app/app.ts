@@ -1,14 +1,14 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { Routes } from "./routes/crmRoutes";
-import { ServerConfig } from "./server.config";
+import { Routes } from "../routes/crmRoutes";
 import * as mongoose from "mongoose";
+import { AppConfig } from "./app.config";
 
 class App {
 
   public app: express.Application;
   public routeProvider: Routes = new Routes();
-  public mongoUrl: string = ServerConfig.mongoURL;
+  public mongoUrl: string = AppConfig.mongoURL;
 
   constructor() {
     this.app = express();
