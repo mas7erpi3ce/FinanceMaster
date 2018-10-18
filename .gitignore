@@ -11,9 +11,9 @@ lerna-debug.log*
 .npm
 
 # Dependency directories
-/node_modules
-/jspm_packages
-/bower_components
+node_modules
+jspm_packages
+bower_components
 
 # Yarn Integrity file
 .yarn-integrity
