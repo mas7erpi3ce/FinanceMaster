@@ -1,13 +1,16 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import { Routes } from "./routes/crmRoutes";
 
 class App {
 
   public app: express.Application;
+  public routeProvider: Routes = new Routes();
 
   constructor() {
     this.app = express();
     this.config();
+    this.routeProvider.routes(this.app);
   }
 
   private config(): void {
