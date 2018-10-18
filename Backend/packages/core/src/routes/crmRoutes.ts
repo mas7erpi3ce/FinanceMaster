@@ -15,12 +15,12 @@ export class Routes {
       })
 
     // User 
-    app.route('/user')
+    app.route('/users')
       .get(this.userController.getUsers)
       .post(this.userController.addNewUser)
 
     // user detail
-    app.route('/user/:userId')
+    app.route('/users/:userId')
       .put(this.userController.updateUser)
 
   }

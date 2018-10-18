@@ -1,16 +1,20 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./routes/crmRoutes";
+import { ServerConfig } from "./server.config";
+import * as mongoose from "mongoose";
 
 class App {
 
   public app: express.Application;
   public routeProvider: Routes = new Routes();
+  public mongoUrl: string = ServerConfig.mongoURL;
 
   constructor() {
     this.app = express();
     this.config();
     this.routeProvider.routes(this.app);
+    this.mongoSetup();
   }
 
   private config(): void {
@@ -18,6 +22,11 @@ class App {
     this.app.use(bodyParser.json());
     //support application/x-www-form-urlencoded post data
     this.app.use(bodyParser.urlencoded({ extended: false }));
+  }
+
+  private mongoSetup(): void {
+    mongoose.Promise = global.Promise;
+    mongoose.connect(this.mongoUrl, { useNewUrlParser: true });
   }
 
 }
