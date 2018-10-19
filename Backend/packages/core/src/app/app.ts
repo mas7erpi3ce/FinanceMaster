@@ -1,6 +1,7 @@
+
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { Routes } from "../routes/crmRoutes";
+import { Routes } from "../route/route";
 import * as mongoose from "mongoose";
 import { AppConfig } from "./app.config";
 
