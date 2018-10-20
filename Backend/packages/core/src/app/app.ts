@@ -4,6 +4,7 @@ import * as bodyParser from "body-parser";
 import { Routes } from "../route/route";
 import * as mongoose from "mongoose";
 import { AppConfig } from "./app.config";
+import * as helmet from "helmet"
 
 class App {
 
@@ -21,8 +22,10 @@ class App {
   private config(): void {
     // support application/json type post data
     this.app.use(bodyParser.json());
-    //support application/x-www-form-urlencoded post data
+    // support application/x-www-form-urlencoded post data
     this.app.use(bodyParser.urlencoded({ extended: false }));
+    // security middleware
+    this.app.use(helmet());
   }
 
   private mongoSetup(): void {
