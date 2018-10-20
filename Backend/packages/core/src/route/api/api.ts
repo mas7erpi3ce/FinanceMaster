@@ -1,6 +1,6 @@
 
 import { Router } from "express";
-import router from "./user/user.router";
+import { default as userRouter } from "./user/user.router";
 
 
 class Api {
@@ -13,7 +13,7 @@ class Api {
   }
 
   private configRoutes(): void {
-    this.router.use('/users', router);
+    this.router.use('/users', userRouter);
   }
 
 }

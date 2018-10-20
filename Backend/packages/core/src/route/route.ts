@@ -1,6 +1,6 @@
 
 import { Request, Response, Application } from "express";
-import router from "./api/api";
+import { default as apiRouter } from "./api/api";
 
 
 export class Routes {
@@ -14,6 +14,6 @@ export class Routes {
         })
       });
 
-    app.use('/api', router);
+    app.use('/api', apiRouter);
   }
 }
