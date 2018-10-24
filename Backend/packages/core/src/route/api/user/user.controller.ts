@@ -1,13 +1,14 @@
 
 import { Request, Response } from 'express';
 import { User } from './user.model';
+import { UserModel } from './user.model.interface';
 
 export class UserController {
 
   public addNewUser(req: Request, res: Response) {
     let newUser = new User(req.body);
 
-    newUser.save((err, user) => {
+    newUser.save((err: any, user: UserModel) => {
       if (err) {
         res.send(err);
       }
@@ -16,16 +17,16 @@ export class UserController {
   }
 
   public getUsers(res: Response) {
-    User.find({}, (err, user) => {
+    User.find({}, (err: any, users: UserModel[]) => {
       if (err) {
         res.send(err);
       }
-      res.json(user);
+      res.json(users);
     });
   }
 
   public updateUser(req: Request, res: Response) {
-    User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true }, (err, user) => {
+    User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true }, (err: any, user: UserModel) => {
       if (err) {
         res.send(err);
       }
