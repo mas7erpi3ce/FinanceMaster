@@ -5,6 +5,7 @@ import { Routes } from "../route/route";
 import mongoose = require('mongoose')
 import { AppConfig } from "./app.config";
 import * as helmet from "helmet"
+import * as bluebird from "bluebird"
 
 class App {
 
@@ -29,6 +30,7 @@ class App {
   }
 
   private mongoSetup(): void {
+    global.Promise = bluebird.Promise;
     mongoose.Promise = global.Promise;
     mongoose.connect(this.mongoUrl, { useNewUrlParser: true });
   }

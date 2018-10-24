@@ -1,22 +1,36 @@
 
-import * as mongoose from 'mongoose';
+import { Schema, Model, model } from 'mongoose';
+import { UserModel } from './user.model.interface';
+import { NextFunction } from 'express-serve-static-core';
 
-const Schema = mongoose.Schema;
-
-export const UserSchema = new Schema({
-  firstName: {
+export const UserSchema: Schema = new Schema({
+  userName: {
     type: String,
-    required: 'Enter a first name'
+    required: 'Enter a username',
+    unique: true,
   },
-  lastName: {
+  password: {
     type: String,
-    required: 'Enter a last name'
+    required: 'Enter a password',
   },
-  email: {
-    type: String
-  },
-  created_date: {
+  createdAt: {
     type: Date,
     default: Date.now
   }
 });
+
+UserSchema.pre<UserModel>("save", function (next: NextFunction) {
+  if (!this.isModified('password')) {
+    next();
+  }
+  next();
+  //implement bcrypt
+});
+
+UserSchema.methods.comparePassword = function (): boolean {
+  //implement bcrypt
+  return true
+};
+
+export const User: Model<UserModel> = model<UserModel>("User", UserSchema);
+

@@ -1,15 +1,14 @@
 
-import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
-import { UserSchema } from './user.model';
+import { User } from './user.model';
+import { UserModel } from './user.model.interface';
 
-const User = mongoose.model('User', UserSchema);
 export class UserController {
 
   public addNewUser(req: Request, res: Response) {
     let newUser = new User(req.body);
 
-    newUser.save((err, user) => {
+    newUser.save((err: any, user: UserModel) => {
       if (err) {
         res.send(err);
       }
@@ -17,17 +16,17 @@ export class UserController {
     });
   }
 
-  public getUsers(req: Request, res: Response) {
-    User.find({}, (err, user) => {
+  public getUsers(res: Response) {
+    User.find({}, (err: any, users: UserModel[]) => {
       if (err) {
         res.send(err);
       }
-      res.json(user);
+      res.json(users);
     });
   }
 
   public updateUser(req: Request, res: Response) {
-    User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true }, (err, user) => {
+    User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true }, (err: any, user: UserModel) => {
       if (err) {
         res.send(err);
       }
