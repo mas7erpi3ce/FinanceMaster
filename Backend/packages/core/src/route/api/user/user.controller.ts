@@ -1,7 +1,6 @@
 
-import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
-import { UserSchema, User } from './user.model';
+import { User } from './user.model';
 
 export class UserController {
 
@@ -16,7 +15,7 @@ export class UserController {
     });
   }
 
-  public getUsers(req: Request, res: Response) {
+  public getUsers(res: Response) {
     User.find({}, (err, user) => {
       if (err) {
         res.send(err);

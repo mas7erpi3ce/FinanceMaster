@@ -1,5 +1,5 @@
 
-import { Document, Schema, Model, model } from 'mongoose';
+import { Schema, Model, model } from 'mongoose';
 import { UserModel } from './user.model.interface';
 import { NextFunction } from 'express-serve-static-core';
 
@@ -27,7 +27,7 @@ UserSchema.pre<UserModel>("save", function (next: NextFunction) {
   //implement bcrypt
 });
 
-UserSchema.methods.comparePassword = function (password: string): boolean {
+UserSchema.methods.comparePassword = function (): boolean {
   //implement bcrypt
   return true
 };
