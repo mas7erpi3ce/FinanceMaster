@@ -4,17 +4,10 @@ import { UserModel } from './user.model.interface';
 import { NextFunction } from 'express-serve-static-core';
 
 export const UserSchema: Schema = new Schema({
-  firstName: {
+  userName: {
     type: String,
-    required: 'Enter a first name',
+    required: 'Enter a username',
     unique: true,
-  },
-  lastName: {
-    type: String,
-    required: 'Enter a last name'
-  },
-  email: {
-    type: String
   },
   password: {
     type: String,
