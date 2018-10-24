@@ -1,9 +1,8 @@
 
 import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
-import { UserSchema } from './user.model';
+import { UserSchema, User } from './user.model';
 
-const User = mongoose.model('User', UserSchema);
 export class UserController {
 
   public addNewUser(req: Request, res: Response) {
