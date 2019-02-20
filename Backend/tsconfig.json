@@ -9,7 +9,7 @@
     "baseUrl": "./packages"
   },
   "include": [
-    "packages/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
