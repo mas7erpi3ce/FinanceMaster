@@ -5,8 +5,8 @@ import * as https from 'https';
 import * as fs from 'fs';
 
 const httpsOptions = {
-  key: fs.readFileSync('./packages/core/src/server/certificates/key.pem'),
-  cert: fs.readFileSync('./packages/core/src/server/certificates/cert.pem')
+  key: fs.readFileSync(`${__dirname}/certificates/key.pem`),
+  cert: fs.readFileSync(`${__dirname}/certificates/cert.pem`)
 }
 
 https.createServer(httpsOptions, app)
