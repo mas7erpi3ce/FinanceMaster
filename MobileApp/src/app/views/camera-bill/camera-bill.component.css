@@ -1,0 +1,10 @@
+/* Add mobile styles for the component here.  */
+
+.action-bar {
+  background-color: aqua;
+}
+
+FlexboxLayout {
+  justify-content: center;
+  align-items: center;
+}

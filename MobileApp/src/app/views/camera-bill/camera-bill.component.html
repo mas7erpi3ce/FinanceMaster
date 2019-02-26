@@ -1,0 +1,15 @@
+<ActionBar title="FinanceMaster" icon="" class="action-bar">
+</ActionBar>
+
+<FlexboxLayout>
+  <StackLayout>
+
+    <Button (tap)="takePicture()" [text]="image ? 'Retake picture' : 'Take picture'" class="btn btn-primary"></Button>
+    <Image width="200" *ngIf="image" [src]="image" stretch="aspectFit"></Image>
+    <StackLayout *ngIf="image" orientation="horizontal">
+      <Button (tap)="image = undefined" text="Delete picture" class="btn btn-primary"></Button>
+      <Button (tap)="uploadPicture()" text="Upload picture" class="btn btn-primary"></Button>
+    </StackLayout>
+
+  </StackLayout>
+</FlexboxLayout>
