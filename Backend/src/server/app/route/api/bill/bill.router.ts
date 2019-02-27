@@ -15,6 +15,7 @@ class BillRouter {
   private configRoutes(): void {
     this.router.route('/')
       .post(this.billController.addNewBill)
+      .get(this.billController.getBill)
   }
 
 }
