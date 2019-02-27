@@ -21,7 +21,7 @@ export class BillUploadService {
   uploadPicture(bills: Bill): Observable<Bill> {
     return this.http.post<Bill>(`${serverURL}/api/bills`, JSON.stringify(bills), httpOptions)
       .pipe(
-        tap(bill => console.log("img uploaded: ", bill)),
+        tap(bill => console.log("img uploaded: ", bill.uuID)),
         catchError(this.handleError<Bill>("uploadBill", undefined))
       )
   }

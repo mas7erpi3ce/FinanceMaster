@@ -2,7 +2,7 @@
 </ActionBar>
 
 <FlexboxLayout>
-  <StackLayout>
+  <StackLayout *ngIf="!isUploading">
 
     <Button (tap)="takePicture()" [text]="image ? 'Retake picture' : 'Take picture'" class="btn btn-primary"></Button>
     <Image width="200" *ngIf="image" [src]="image" stretch="aspectFit"></Image>
@@ -12,4 +12,11 @@
     </StackLayout>
 
   </StackLayout>
+
+  <StackLayout>
+    <Label *ngIf="isUploading" text="Uploading bee"></Label>
+    <ActivityIndicator [busy]="isUploading" [visibility]="isUploading ? 'visible' : 'collapse'" row="1"
+      horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+  </StackLayout>
+
 </FlexboxLayout>
