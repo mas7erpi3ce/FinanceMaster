@@ -30,6 +30,8 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: true, limit: "5mb" }));
     // support application/json post data
     this.app.use(bodyParser.json({ limit: "5mb" }));
+    // support application/raw
+    this.app.use(bodyParser.raw({ limit: "5mb" }));
     // Cross-Origin Resource Sharing (CORS)
     this.app.use(cors())
   }
