@@ -22,7 +22,7 @@ export class BillUploadService {
   uploadPicture(base64String: string): Observable<Bill> {
     return this.http.post<Bill>(`${serverURL}/api/bills`, { base64String: base64String, uuID: device.uuid }, httpOptions)
       .pipe(
-        tap(_ => console.log("img uploaded")),
+        tap(bill => console.log("img uploaded: ", bill)),
         catchError(this.handleError<Bill>("uploadBill", undefined))
       )
   }
