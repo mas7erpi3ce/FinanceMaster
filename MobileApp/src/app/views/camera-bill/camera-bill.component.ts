@@ -4,6 +4,7 @@ import { Image } from "tns-core-modules/ui/image";
 import { BillUploadService } from '~/app/services/bill-upload.service';
 import { ImageAsset } from 'tns-core-modules/image-asset/image-asset';
 import { ImageSource } from 'tns-core-modules/image-source/image-source';
+import { device } from 'tns-core-modules/platform/platform';
 
 @Component({
   selector: 'ns-camera-bill',
@@ -24,7 +25,7 @@ export class CameraBillComponent implements OnInit {
   async uploadPicture(): Promise<void> {
     const source: ImageSource = await new ImageSource().fromAsset(this.image);
     const base64String: string = source.toBase64String("jpeg");
-    this.billUploadService.uploadPicture(base64String)
+    this.billUploadService.uploadPicture({ base64String: base64String, uuID: device.uuid })
       .subscribe();
   }
 
