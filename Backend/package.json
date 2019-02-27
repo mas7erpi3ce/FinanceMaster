@@ -27,10 +27,12 @@
     "bcrypt": "^3.0.2",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "helmet": "^3.14.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.6",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "tslint": "^5.13.0"
   }
 }
