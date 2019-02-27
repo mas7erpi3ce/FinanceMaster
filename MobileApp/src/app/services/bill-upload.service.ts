@@ -4,7 +4,6 @@ import { serverURL } from './Config';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Bill } from './bill.interface';
-import { device } from 'tns-core-modules/platform/platform';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +18,8 @@ export class BillUploadService {
     private http: HttpClient
   ) { }
 
-  uploadPicture(bill: Bill): Observable<Bill> {
-    return this.http.post<Bill>(`${serverURL}/api/bills`, bill, httpOptions)
+  uploadPicture(bills: Bill): Observable<Bill> {
+    return this.http.post<Bill>(`${serverURL}/api/bills`, JSON.stringify(bills), httpOptions)
       .pipe(
         tap(bill => console.log("img uploaded: ", bill)),
         catchError(this.handleError<Bill>("uploadBill", undefined))
