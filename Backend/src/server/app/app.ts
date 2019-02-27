@@ -26,6 +26,8 @@ class App {
     this.app.use(helmet());
     // support application/json type post data
     this.app.use(bodyParser.json());
+    // support application/x-www-form-urlencoded post data
+    this.app.use(bodyParser.urlencoded({ extended: true, limit: "5mb" }));
     // support application/json post data
     this.app.use(bodyParser.json({ limit: "5mb" }));
     // Cross-Origin Resource Sharing (CORS)
