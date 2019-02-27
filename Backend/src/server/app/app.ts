@@ -6,7 +6,7 @@ import mongoose = require('mongoose')
 import { AppConfig } from "./app.config";
 import * as helmet from "helmet"
 import * as bluebird from "bluebird"
-import { cors } from 'cors'
+import * as cors from "cors";
 
 class App {
 
@@ -27,7 +27,7 @@ class App {
     // support application/json type post data
     this.app.use(bodyParser.json());
     // support application/x-www-form-urlencoded post data
-    this.app.use(bodyParser.urlencoded({ extended: true, limit: "10mb"}));
+    this.app.use(bodyParser.urlencoded({ extended: true, limit: "5mb" }));
     // Cross-Origin Resource Sharing (CORS)
     this.app.use(cors())
   }

@@ -1,1 +1,1 @@
-export const serverURL = "aisoft.solutions:3000";
+export const serverURL = "http://aisoft.solutions:3000";
