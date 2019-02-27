@@ -24,14 +24,10 @@ class App {
   private config(): void {
     // security middleware
     this.app.use(helmet());
-    // support application/json type post data
-    this.app.use(bodyParser.json());
     // support application/x-www-form-urlencoded post data
-    this.app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+    // this.app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
     // support application/json post data
-    this.app.use(bodyParser.json({ limit: "50mb" }));
-    // support application/raw
-    this.app.use(bodyParser.raw({ limit: "50mb" }));
+    this.app.use(bodyParser.json({ limit: "5mb" }));
     // Cross-Origin Resource Sharing (CORS)
     this.app.use(cors())
   }
