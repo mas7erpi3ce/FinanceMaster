@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BillComponent } from './bill/bill.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OcrComponent } from './components/ocr/ocr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BillComponent
+    BillComponent,
+    OcrComponent
   ],
   imports: [
     BrowserModule,
