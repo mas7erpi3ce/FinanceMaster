@@ -1,6 +1,7 @@
 
 import { Request, Response } from 'express';
 import { Bill } from './model/bill.model';
+import { BillModel } from './model/bill.model.interface';
 
 export class BillController {
 
@@ -15,7 +16,8 @@ export class BillController {
   }
 
   public async getBill(req: Request, res: Response): Promise<void> {
-    res.send(await Bill.aggregate([{ $sample: { size: 1 } }]).exec());
+    const bill: BillModel[] = await Bill.aggregate([{ $sample: { size: 1 } }]).exec();
+    res.send(bill[0]);
   }
 
 }

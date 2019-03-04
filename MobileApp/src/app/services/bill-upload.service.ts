@@ -18,8 +18,8 @@ export class BillUploadService {
     private http: HttpClient
   ) { }
 
-  uploadPicture(bills: Bill): Observable<Bill> {
-    return this.http.post<Bill>(`${serverURL}/api/bills`, JSON.stringify(bills), httpOptions)
+  uploadPicture(bill: Bill): Observable<Bill> {
+    return this.http.post<Bill>(`${serverURL}/api/bills`, bill, httpOptions)
       .pipe(
         tap(bill => console.log("img uploaded: ", bill.uuID)),
         catchError(this.handleError<Bill>("uploadBill", undefined))

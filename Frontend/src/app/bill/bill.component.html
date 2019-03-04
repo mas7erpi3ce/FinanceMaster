@@ -1,7 +1,9 @@
-<p>
-  bill works!
-</p>
+<div class="bill-component">
+  <div>
+    <p *ngIf="bill" (click)="getAndDrawBill()">
+      UUID: {{ bill.uuID }}
+    </p>
+    <canvas #billCanvas></canvas>
+  </div>
 
-<div>
-  <p>{{ bill.uuID }}</p>
 </div>

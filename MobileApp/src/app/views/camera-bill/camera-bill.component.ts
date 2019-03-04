@@ -21,7 +21,10 @@ export class CameraBillComponent implements OnInit {
   constructor(private billUploadService: BillUploadService) { }
 
   async takePicture(): Promise<void> {
-    this.image = await camera.takePicture();
+    this.image = await camera.takePicture({
+      keepAspectRatio: true,
+      width: 1000
+    });
   }
 
   async uploadPicture(): Promise<void> {
