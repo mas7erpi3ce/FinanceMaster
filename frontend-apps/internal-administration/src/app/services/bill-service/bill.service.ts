@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Config } from './config';
 import { Bill } from './bill.interface';
+import { Config } from '../service-config';
 
 
 const httpOptions = {

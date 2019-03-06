@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
-import { BillService } from '../services/bill.service';
-import { Bill } from '../services/bill.interface';
 import { fromEvent, Subscription } from 'rxjs';
 import { switchMap, takeUntil, pairwise, tap } from 'rxjs/operators';
+import { BillService } from 'src/app/services/bill-service/bill.service';
+import { Bill } from 'src/app/services/bill-service/bill.interface';
 
 
 interface CanvasCircle {

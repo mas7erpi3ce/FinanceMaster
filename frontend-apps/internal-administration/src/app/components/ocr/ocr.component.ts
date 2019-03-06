@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BillService } from 'src/app/services/bill.service';
-import { Bill } from 'src/app/services/bill.interface';
+import { BillService } from 'src/app/services/bill-service/bill.service';
 import Tesseract from '../../../../node_modules/tesseract.js/dist/tesseract.js';
+import { Bill } from 'src/app/services/bill-service/bill.interface.js';
 
 @Component({
   selector: 'app-ocr',
