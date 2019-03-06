@@ -1,0 +1,1 @@
+export const serverURL = "http://aisoft.solutions:3030";

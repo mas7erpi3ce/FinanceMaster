@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BillService } from 'src/app/services/bill.service';
 import { Bill } from 'src/app/services/bill.interface';
-import * as Tesseract from 'tesseract.js';
+import Tesseract from '../../../../node_modules/tesseract.js/dist/tesseract.js';
 
 @Component({
   selector: 'app-ocr',
@@ -17,13 +17,13 @@ export class OcrComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.billService.getBill().subscribe(bill => {
+      this.bill = bill;
       const image = new Image();
       image.src = `data:image/jpeg;base64,${bill.base64String}`;
       image.onload = () => {
         Tesseract
-          .recognize(image)
+          .recognize(image, { lang: 'deu' })
           .progress(message => console.log(message))
           .catch(err => console.error(err))
           .then(result => console.log(result))

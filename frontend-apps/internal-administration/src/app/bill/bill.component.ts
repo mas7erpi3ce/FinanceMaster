@@ -50,7 +50,7 @@ export class BillComponent implements AfterViewInit, OnDestroy {
     // set some default properties about the line
     this.ctx.lineWidth = 3;
     this.ctx.lineCap = 'round';
-    this.ctx.strokeStyle = '#000';
+    this.ctx.strokeStyle = '#e9ff6f';
 
     this.captureEvents(canvasEl);
   }
