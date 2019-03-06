@@ -3,10 +3,9 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
-import { CameraBillComponent } from "./views/camera-bill/camera-bill.component";
+
 import { HttpClientModule } from "@angular/common/http";
+import { CameraBillComponent } from "./components/camera-bill/camera-bill.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -25,8 +24,6 @@ import { HttpClientModule } from "@angular/common/http";
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent,
         CameraBillComponent
     ],
     providers: [],

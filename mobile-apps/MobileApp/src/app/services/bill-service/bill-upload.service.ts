@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { serverURL } from './Config';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Bill } from './bill.interface';
+import { Config } from '../service.config';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class BillUploadService {
   ) { }
 
   uploadPicture(bill: Bill): Observable<Bill> {
-    return this.http.post<Bill>(`${serverURL}/api/bills`, bill, httpOptions)
+    return this.http.post<Bill>(`${Config.baseURL}/api/bills`, bill, httpOptions)
       .pipe(
         tap(bill => console.log("img uploaded: ", bill.uuID)),
         catchError(this.handleError<Bill>("uploadBill", undefined))

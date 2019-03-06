@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as camera from "nativescript-camera";
-import { Image } from "tns-core-modules/ui/image";
-import { BillUploadService } from '~/app/services/bill-upload.service';
 import { ImageAsset } from 'tns-core-modules/image-asset/image-asset';
 import { ImageSource } from 'tns-core-modules/image-source/image-source';
 import { device } from 'tns-core-modules/platform/platform';
-import { throwIfEmpty } from 'rxjs/operators';
+import { BillUploadService } from '~/app/services/bill-service/bill-upload.service';
 
 @Component({
   selector: 'ns-camera-bill',
