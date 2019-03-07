@@ -3,6 +3,9 @@
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
-    "**/.factorypath": true
+    "**/.factorypath": true,
+    "**/*.pyc": true,
+    "**/node_modules": true,
+    "**/hooks": true
   }
 }

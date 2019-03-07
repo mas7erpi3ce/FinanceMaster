@@ -27,7 +27,7 @@ def resize():
         img.save(buffer, format='JPEG')
         base64String = base64.b64encode(buffer.getvalue())
 
-        res = jsonify({'message': height, '2': width, '3': base64String})
+        res = jsonify({'base64String': base64String})
         res.status_code = 200
         return res
 
