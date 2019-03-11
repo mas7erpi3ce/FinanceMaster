@@ -17,6 +17,7 @@
     "@types/helmet": "0.0.42",
     "@types/mongodb": "^3.1.12",
     "@types/mongoose": "^5.2.19",
+    "@types/request-promise": "^4.1.42",
     "lerna": "^3.13.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3"
@@ -35,6 +36,8 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.6",
     "nodemon": "^1.18.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "tslint": "^5.13.0"
   }
 }

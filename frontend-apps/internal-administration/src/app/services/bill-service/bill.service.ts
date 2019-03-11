@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Bill } from './bill.interface';
 import { Config } from '../service-config';
+import { BillInfo } from './billInfo.interface';
 
 
 const httpOptions = {
@@ -27,6 +28,14 @@ export class BillService {
       .pipe(
         tap(_ => console.log('get bill successfull')),
         catchError(this.handleError('getBill', undefined))
+      );
+  }
+
+  updateBill(billInfo: BillInfo): Observable<any> {
+    return this.http.put(this.billsUrl, billInfo, httpOptions)
+      .pipe(
+        tap(_ => console.log('bill update successfull')),
+        catchError(this.handleError('updateBill', undefined))
       );
   }
 
