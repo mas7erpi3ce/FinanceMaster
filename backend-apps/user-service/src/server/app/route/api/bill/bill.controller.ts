@@ -31,7 +31,7 @@ export class BillController {
 
   public async updateBill(req: Request, res: Response): Promise<void> {
 
-    const r = await AiScannerService.updateBill(req.body.points, req.body.billID)
+    const r = await AiScannerService.updateBill({ points: req.body.points }, req.body.billID)
 
     const bill = await Bill.findByIdAndUpdate(req.body.billID, { evaluated: true }, { new: true }).exec()
     console.log(r)

@@ -1,4 +1,4 @@
 
 export const AppConfig = {
-  mongoURL: 'mongodb://localhost/CRMdb'
+  mongoURL: 'mongodb://localhost/user-service'
 }

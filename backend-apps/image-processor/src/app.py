@@ -8,7 +8,7 @@ api.initApi(app)
 
 if __name__ == '__main__':
     app.run(
-        debug=Config['debugMode'],
-        port=Config['port'],
-        host=Config['host']
+        debug=Config.debugMode,
+        port=Config.port,
+        host=Config.host,
     )

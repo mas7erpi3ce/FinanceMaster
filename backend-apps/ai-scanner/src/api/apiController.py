@@ -58,15 +58,16 @@ def update(billID):
 
         try:
             # TODO -> new points structure
-            points = {
-                'point1': {'x': body['point1']['x'], 'y': body['point1']['y']},
-                'point2': {'x': body['point2']['x'], 'y': body['point2']['y']},
-                'point3': {'x': body['point3']['x'], 'y': body['point3']['y']},
-                'point4': {'x': body['point4']['x'], 'y': body['point4']['y']},
-            }
+            points = body['points']
+            # {
+            #     'point1': {'x': body['point1']['x'], 'y': body['point1']['y']},
+            #     'point2': {'x': body['point2']['x'], 'y': body['point2']['y']},
+            #     'point3': {'x': body['point3']['x'], 'y': body['point3']['y']},
+            #     'point4': {'x': body['point4']['x'], 'y': body['point4']['y']},
+            # }
         except:
             res = jsonify(
-                {'message': 'Request body needs to include point1 to 4 { x: int, y: int }'}
+                {'message': 'Request body needs to include 4 points as { points:  [{ x: int, y: int } * 4 ]}'}
             )
             res.status_code = 400
             return res
@@ -86,5 +87,3 @@ def update(billID):
         res = jsonify({'message': 'Unsupported Media Type'})
         res .status_code = 415
         return res
-
-    return "update"

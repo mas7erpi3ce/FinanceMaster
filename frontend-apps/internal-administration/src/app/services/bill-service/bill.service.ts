@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Bill } from './bill.interface';
-import { Config } from '../service-config';
+import { Config } from '../service.config';
 import { BillInfo } from './billInfo.interface';
 
 

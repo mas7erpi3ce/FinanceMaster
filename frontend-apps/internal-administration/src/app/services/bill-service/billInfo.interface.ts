@@ -1,15 +1,10 @@
 
 export interface BillInfo {
   billID: string;
-  points: {
-    point1: Point;
-    point2: Point;
-    point3: Point;
-    point4: Point;
-  };
+  points: Point[];
 }
 
-interface Point {
+export interface Point {
   x: number;
   y: number;
 }

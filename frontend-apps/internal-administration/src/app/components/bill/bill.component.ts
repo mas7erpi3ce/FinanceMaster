@@ -3,7 +3,7 @@ import { fromEvent, Subscription } from 'rxjs';
 import { switchMap, takeUntil, pairwise, tap } from 'rxjs/operators';
 import { BillService } from 'src/app/services/bill-service/bill.service';
 import { Bill } from 'src/app/services/bill-service/bill.interface';
-import { BillInfo } from 'src/app/services/bill-service/billInfo.interface';
+import { BillInfo, Point } from 'src/app/services/bill-service/billInfo.interface';
 
 
 interface CanvasCircle {
@@ -43,15 +43,10 @@ export class BillComponent implements AfterViewInit, OnDestroy {
   }
 
   sendBillInfo() {
-    const points = this.canvasElements.map(el => ({ x: el.x / this.width, y: el.y / this.height }));
+    const points = this.canvasElements.map(el => ({ x: el.x / this.width, y: el.y / this.height } as Point));
     const billInfo: BillInfo = {
       billID: this.bill._id,
-      points: {
-        point1: points[0],
-        point2: points[1],
-        point3: points[2],
-        point4: points[3],
-      }
+      points: points,
     };
 
     this.canvasElements = [];
