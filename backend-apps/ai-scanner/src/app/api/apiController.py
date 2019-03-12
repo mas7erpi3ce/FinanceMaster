@@ -1,15 +1,8 @@
 from flask import request, json, jsonify
-from services import imageProcessorService as imgService
-from models.billModel import BillModel as Bill
+from app import services
+from app import models
+from app import db
 
-db = None
-
-# TODO -> make this with import [2]
-
-
-def setDB(database):
-    global db
-    db = database
 
 # TODO -> Interceptor - headers [7]
 # TODO -> Interceptor - static preloader [7]
@@ -29,10 +22,11 @@ def scanAndSave():
             res.status_code = 400
             return res
 
-        base64String = imgService.resizeImage(reqBase64String, 200, 200)
+        base64String = services.image.resizeImage(reqBase64String, 200, 200)
         # TODO -> points = AI.findCorners(base64String) [100]
         # TODO -> resBase64String = imgService.fromQuadrangeToRect(reqBase64String, corners) [10]
-        bill = Bill(base64String, billID)  # TODO -> add also the points [1]
+        # TODO -> add also the points [1]
+        bill = models.Bill(base64String, billID)
         db.bills.insert(bill.get())
 
         # TODO -> response with billID and resBase64String [1]
@@ -57,14 +51,7 @@ def update(billID):
         body = request.json
 
         try:
-            # TODO -> new points structure
             points = body['points']
-            # {
-            #     'point1': {'x': body['point1']['x'], 'y': body['point1']['y']},
-            #     'point2': {'x': body['point2']['x'], 'y': body['point2']['y']},
-            #     'point3': {'x': body['point3']['x'], 'y': body['point3']['y']},
-            #     'point4': {'x': body['point4']['x'], 'y': body['point4']['y']},
-            # }
         except:
             res = jsonify(
                 {'message': 'Request body needs to include 4 points as { points:  [{ x: int, y: int } * 4 ]}'}
@@ -74,7 +61,7 @@ def update(billID):
 
         bill = db.bills.find_and_modify(
             query={'billID': billID},
-            update={"$set": points},
+            update={"$set": {'points': points}},
             upsert=False,
             full_response=True
         )
