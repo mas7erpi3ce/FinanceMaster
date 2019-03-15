@@ -1,1 +1,1 @@
-from . import imageProcessorService as image
+from . import image_processor as image

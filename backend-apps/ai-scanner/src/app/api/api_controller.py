@@ -13,7 +13,7 @@ db = client[Config.mongoColection]
 
 @preloader(["billID", "base64String"], models.Bill.verify)
 async def scanAndSave(request):
-    base64String = services.image.resizeImage(
+    base64String = await services.image.resizeImage(
         request['base64String'], 200, 200
     )
     # TODO -> points = AI.findCorners(base64String) [100]
