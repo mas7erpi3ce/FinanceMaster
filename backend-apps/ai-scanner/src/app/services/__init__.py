@@ -1,1 +1,1 @@
-import imageProcessorService as image
+from . import imageProcessorService as image

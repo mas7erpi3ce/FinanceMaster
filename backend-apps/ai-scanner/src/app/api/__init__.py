@@ -1,10 +1,23 @@
-from app import app
-import apiController as ctr
+from sanic import Blueprint, response
+from . import api_controller as ctr
 
-prefix = '/api/'
+api = Blueprint('api', url_prefix='/api/')
 
-# TODO -> Blueprint [2] #34
 
-app.add_url_rule(prefix, 'scanAndSave', ctr.scanAndSave, methods=['POST'])
-app.add_url_rule(prefix + 'get/<billID>', 'get', ctr.get, methods=['GET'])
-app.add_url_rule(prefix + 'update/<billID>', 'update', ctr.update, methods=['PUT'])
+@api.middleware('request')
+async def check_headers(request):
+    if request.headers['Content-Type'] != 'application/json':
+        return response.json(
+            {'message': 'Unsupported Media Type'},
+            status=415
+        )
+
+
+# @api.middleware('response')
+# async def cookies(request, response):
+#     response.headers["Server"] = "Fake-Server"
+
+
+api.add_route(ctr.scanAndSave, '', methods=['POST'])
+api.add_route(ctr.get, 'get/<billID>', methods=['GET'])
+api.add_route(ctr.update, 'update/<billID>',  methods=['PUT'])

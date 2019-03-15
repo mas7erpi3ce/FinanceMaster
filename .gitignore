@@ -27,6 +27,7 @@ bower_components
 
 # Compiled python modules.
 *.pyc
+*__pycache__
 
 #Build generated
 dist/

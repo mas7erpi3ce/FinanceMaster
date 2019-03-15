@@ -1,1 +1,1 @@
-from billModel import BillModel as Bill
+from .billModel import BillModel as Bill

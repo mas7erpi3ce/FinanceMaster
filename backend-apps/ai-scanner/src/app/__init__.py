@@ -1,12 +1,8 @@
 
-from flask import Flask
-from appConfig import Config
-from flask_pymongo import PyMongo
+from sanic.log import logger
+from sanic import Sanic
+from .api import api
 
-app = Flask(__name__)
+app = Sanic(__name__)
 
-app.config['MONGO_URI'] = Config.MONGO_URI
-mongo = PyMongo(app)
-db = mongo.db
-
-from app import api
+app.blueprint(api)

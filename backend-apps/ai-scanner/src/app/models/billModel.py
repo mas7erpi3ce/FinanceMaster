@@ -16,3 +16,23 @@ class BillModel:
             'billID': self.billID,
             'points': self.points,
         }
+
+    @staticmethod
+    def verify(name, value):
+        if(name == "base64String"):
+            if(isinstance(value, str)):
+                return
+            else:
+                raise ValueError('type not accepted')
+        if(name == "billID"):
+            if(isinstance(value, str)):
+                return
+            else:
+                raise ValueError('type not accepted')
+        if(name == "points"):
+            if(len(value) != 4):
+                raise ValueError('list should have 4 points')
+            for point in value:
+                x = point['x']
+                y = point['y']
+            return

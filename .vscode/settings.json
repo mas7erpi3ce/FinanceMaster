@@ -5,7 +5,11 @@
     "**/.settings": true,
     "**/.factorypath": true,
     "**/*.pyc": true,
+    "**/__pycache__": true,
     "**/node_modules": true,
     "**/hooks": true
-  }
+  },
+  "python.pythonPath": "C:\\Development\\Python\\python.exe",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }

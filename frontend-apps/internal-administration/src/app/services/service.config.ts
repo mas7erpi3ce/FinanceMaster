@@ -1,4 +1,4 @@
 
 export const Config = {
-  baseUrl: 'http://localhost:3030',
+  baseUrl: 'http://aisoft.solutions:3030',
 };
