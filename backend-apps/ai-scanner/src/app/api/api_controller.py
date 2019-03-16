@@ -1,6 +1,5 @@
 
-from app import services
-from app import models
+from app import services, models
 from sanic import response
 from sanic.log import logger
 from pymongo import MongoClient
@@ -45,7 +44,7 @@ async def update(request, billID):
         full_response=True
     )
 
-    # Todo crop image and send back
+    # TODO -> crop image and send back
 
     return response.json(
         {'status': 'succesfull'},
