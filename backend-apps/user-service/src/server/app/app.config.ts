@@ -1,4 +1,4 @@
 
 export const AppConfig = {
-  mongoURL: 'mongodb://localhost/user-service'
+  mongoURL: 'mongodb://hasty-ferret-mongodb/user-service'
 }
