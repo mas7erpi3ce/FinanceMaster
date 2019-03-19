@@ -34,7 +34,6 @@ export class BillController {
     const r = await AiScannerService.updateBill({ points: req.body.points }, req.body.billID)
 
     const bill = await Bill.findByIdAndUpdate(req.body.billID, { evaluated: true }, { new: true }).exec()
-    console.log(r)
 
     res.send()
   }
