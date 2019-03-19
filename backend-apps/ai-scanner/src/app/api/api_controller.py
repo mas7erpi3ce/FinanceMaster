@@ -1,7 +1,6 @@
 
 from app import services, models
 from sanic import response
-#from sanic.log import logger
 from pymongo import MongoClient
 from .api_config import Config
 from .api_preloader import preloader
