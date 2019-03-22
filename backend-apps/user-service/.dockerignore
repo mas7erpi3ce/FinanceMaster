@@ -1,0 +1,5 @@
+node_modules
+README.md
+tslint.json
+tsconfig.json
+npm-debug.log

@@ -1,0 +1,10 @@
+<div class="bill-component">
+  <div>
+    <p *ngIf="bill" (click)="getAndDrawBill()">
+      UUID: {{ bill.uuID }}
+    </p>
+    <canvas #billCanvas></canvas>
+    <button *ngIf="canvasElements.length === 4" (click)="sendBillInfo()">send Info</button>
+  </div>
+
+</div>

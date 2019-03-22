@@ -25,6 +25,10 @@ bower_components
 .env
 .env.*
 
+# Compiled python modules.
+*.pyc
+*__pycache__
+
 #Build generated
 dist/
 build/
